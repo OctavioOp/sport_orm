@@ -1,32 +1,200 @@
 <!DOCTYPE html>
 <html>
-	<head>
-		<title>Sports Leagues</title>
-	</head>
-	<body>
-		<h1>Leagues</h1>
-		<ol>
-			{% for league in leagues %}
-				<li>{{league.name}}</li>
-			{% empty %}
-				<p>No leagues found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
-		<h1>Teams</h1>
-		<ol>
-			{% for team in teams %}
-				<li>{{team.location}} {{team.team_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
-		<h1>Players</h1>
-		<ol>
-			{% for player in players %}
-				<li>{{player.first_name}} {{player.last_name}}</li>
-			{% empty %}
-				<p>No teams found.  Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-			{% endfor %}
-		</ol>
-	</body>
+
+<head>
+	<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/css/bootstrap.min.css" rel="stylesheet"
+		integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRk2vvoC2f3B09zVXn8CA5QIVfZOJ3BCsw2P0p/We" crossorigin="anonymous">
+	<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.0/dist/js/bootstrap.bundle.min.js"
+		integrity="sha384-U1DAWAznBHeqEIlVSCgzq+c9gqGAJn5c/t99JyeKa9xxaYpSvHU5awsuZVVFIhvj"
+		crossorigin="anonymous"></script>
+	<link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css"
+		integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
+	<title>Sports Leagues</title>
+</head>
+
+<body>
+	<h1>Leagues</h1>
+	<ol>
+		{% for league in leagues %}
+		<li>{{league.name}}</li>
+		{% empty %}
+		<p>No leagues found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a
+				href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+		{% endfor %}
+	</ol>
+
+
+	<h3><i class="fas fa-baseball-ball"></i> Baseball Leagues</h3>
+	<ul>
+		{% for base in baseball%}
+		<li>{{base.name}}</li>
+		{%endfor%}
+	</ul>
+
+
+	<h3><i class="fas fa-female"></i>  Women Leagues</h3>
+
+	<ul>
+		{% for women in women_league%}
+		<li>
+			{{women.name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+
+	<h3><i class="fas fa-hockey-puck"></i> Hockey league</h3>
+
+	<ul>
+		{% for hockey in hockey_league%}
+		<li>
+			{{hockey.name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+
+	<h3><i class="fas fa-running"></i> Not football Leagues</h3>
+	<ul>
+		{%for sport in not_football%}
+		<li>
+			{{sport.name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+	<h3><i class="fab fa-bandcamp"></i> Conference League</h3>
+	<ul>
+		{% for con in conference%}
+		<li>
+			{{con.name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+
+	<h1>Teams</h1>
+	<ol>
+		{% for team in teams %}
+		<li>{{team.location}} {{team.team_name}}</li>
+		{% empty %}
+		<p>No teams found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a
+				href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+		{% endfor %}
+	</ol>
+
+	<h3><i class="far fa-building"></i> Atlanta</h3>
+	<ul>
+		{% for geo in atlanta%}
+		<li>
+			{{geo.team_name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+	<h3><i class="far fa-building"></i> Dallas</h3>
+	<ul>
+		{% for tex in dallas%}
+		<li>
+			{{tex.team_name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+	<h3><i class="fas fa-users"></i> Raptors</h3>
+	<ul>
+		{% for raptor in raptor%}
+		<li>
+			{{raptor.team_name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+	<h3><i class="far fa-building"></i> City</h3>
+	<ul>
+		{% for city in city%}
+		<li>
+			{{city.team_name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+	<h3><i class="fas fa-users"></i> T</h3>
+	<ul>
+		{%for t in ti%}
+		<li>
+			{{t.team_name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+	<h3><i class="fas fa-users"></i>Location Order Teams</h3>
+	<ul>
+		{%for o in order%}
+		<li>
+			{{o.team_name}} --- {{o.location}}
+		</li>
+		{%endfor%}
+	</ul>
+
+	<h3><i class="fas fa-users"></i>Inverse Order Teams</h3>
+	<ul>
+		{%for o in Iorder%}
+		<li>
+			{{o.team_name}} --- {{o.location}}
+		</li>
+		{%endfor%}
+	</ul>
+
+
+	<h1>Players</h1>
+	<ol>
+		{% for player in players %}
+		<li>{{player.first_name}} {{player.last_name}}</li>
+		{% empty %}
+		<p>No teams found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a
+				href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+		{% endfor %}
+	</ol>
+
+	<h3><i class="far fa-user"></i> Cooper's player</h3>
+	<ul>
+		{%for cooper in cooper%}
+		<li>
+			{{cooper.first_name}} {{cooper.last_name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+	<h3><i class="far fa-user"></i> Joshua's part</h3>
+	<ul>
+		{%for joshua in joshua%}
+		<li>
+			{{joshua.first_name}} {{joshua.last_name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+	<h3><i class="far fa-user"></i>Not Joshua but Cooper</h3>
+	<ul>
+		{%for josh in josh%}
+		<li>
+			{{josh.first_name}} {{josh.last_name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+	<h3><i class="far fa-user"></i> Alexander or Wyatt that's the dilemma</h3>
+	<ul>
+		{%for wa in aw%}
+		<li>
+			{{wa.first_name}} {{wa.last_name}}
+		</li>
+		{%endfor%}
+	</ul>
+
+
+
+</body>
+
 </html>
