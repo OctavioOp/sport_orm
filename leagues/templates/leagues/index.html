@@ -13,185 +13,251 @@
 </head>
 
 <body>
-	<h1>Leagues</h1>
-	<ol>
-		{% for league in leagues %}
-		<li>{{league.name}}</li>
-		{% empty %}
-		<p>No leagues found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a
-				href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-		{% endfor %}
-	</ol>
+	<div class="container">
+		<div class="row">
+			<div class="col">
+				<div id="list-example" class="list-group">
+					<a class="list-group-item list-group-item-action" href="#list-item-1">Leagues</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-2">Baseball Leagues</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-3">Women Leagues</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-4">Hockey Leagues</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-5">Not football Leagues</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-6">Conference League</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-7">Teams</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-8">Atlanta</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-9">Dallas</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-10">Raptors</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-11">City</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-12">T</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-13">Location Order Teams</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-14">Inverse Order Teams</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-15">Players</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-16">Cooper's player</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-17">Joshua's part</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-18">Not Joshua but Cooper</a>
+					<a class="list-group-item list-group-item-action" href="#list-item-19">Alexander or Wyatt that's
+						the dilemma</a>
+				</div>
+			</div>
+			<div class="col-10">
+				<div data-bs-spy="scroll" data-bs-target="#list-example" data-bs-offset="0" class="scrollspy-example"
+					tabindex="0">
+					<h4 id="list-item-1">Leagues</h4>
+					<p>
+					<ol>
+						{% for league in leagues %}
+						<li>{{league.name}}</li>
+						{% empty %}
+						<p>No leagues found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't
+							work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+						{% endfor %}
+					</ol>
+					</p>
+					<h4 id="list-item-2"><i class="fas fa-baseball-ball"></i> Baseball Leagues</h4>
+					<p>
+					<ul>
+						{% for base in baseball%}
+						<li>{{base.name}}</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-3"><i class="fas fa-female"></i> Women Leagues</h4>
+					<p>
+					<ul>
+						{% for women in women_league%}
+						<li>
+							{{women.name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-4"><i class="fas fa-hockey-puck"></i> Hockey league</h4>
+					<p>
+					<ul>
+						{% for hockey in hockey_league%}
+						<li>
+							{{hockey.name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-5"><i class="fas fa-running"></i> Not football Leagues</h4>
+					<p>
+					<ul>
+						{%for sport in not_football%}
+						<li>
+							{{sport.name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-6"><i class="fab fa-bandcamp"></i> Conference League</h4>
+					<p>
+					<ul>
+						{% for con in conference%}
+						<li>
+							{{con.name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-7">Teams</h4>
+					<p>
+					<ol>
+						{% for team in teams %}
+						<li>{{team.location}} {{team.team_name}}</li>
+						{% empty %}
+						<p>No teams found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't
+							work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+						{% endfor %}
+					</ol>
+					</p>
+					<h4 id="list-item-8"><i class="far fa-building"></i> Atlanta</h4>
+					<p>
+					<ul>
+						{% for geo in atlanta%}
+						<li>
+							{{geo.team_name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-9"><i class="far fa-building"></i> Dallas</h4>
+					<p>
+					<ul>
+						{% for tex in dallas%}
+						<li>
+							{{tex.team_name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-10"><i class="fas fa-users"></i> Raptors</h4>
+					<p>
+					<ul>
+						{% for raptor in raptor%}
+						<li>
+							{{raptor.team_name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-11"><i class="far fa-building"></i> City</h4>
+					<p>
+					<ul>
+						{% for city in city%}
+						<li>
+							{{city.team_name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-12"><i class="fas fa-users"></i> T</h4>
+					<p>
+					<ul>
+						{%for t in ti%}
+						<li>
+							{{t.team_name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-13"><i class="fas fa-users"></i>Location Order Teams</h4>
+					<p>
+					<ul>
+						{%for o in order%}
+						<li>
+							{{o.team_name}} --- {{o.location}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-14"><i class="fas fa-users"></i>Inverse Order Teams</h4>
+					<p>
+					<ul>
+						{%for o in Iorder%}
+						<li>
+							{{o.team_name}} --- {{o.location}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-15">Players</h4>
+					<p>
+					<ol>
+						{% for player in players %}
+						<li>{{player.first_name}} {{player.last_name}}</li>
+						{% empty %}
+						<p>No teams found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't
+							work, going <a href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
+						{% endfor %}
+					</ol>
+					</p>
+					<h4 id="list-item-16"><i class="far fa-user"></i> Cooper's player</h4>
+					<p>
+					<ul>
+						{%for cooper in cooper%}
+						<li>
+							{{cooper.first_name}} {{cooper.last_name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-17"><i class="far fa-user"></i> Joshua's part</h4>
+					<p>
+					<ul>
+						{%for joshua in joshua%}
+						<li>
+							{{joshua.first_name}} {{joshua.last_name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-18"><i class="far fa-user"></i>Not Joshua but Cooper</h4>
+					<p>
+					<ul>
+						{%for josh in josh%}
+						<li>
+							{{josh.first_name}} {{josh.last_name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-19"><i class="far fa-user"></i> Alexander or Wyatt that's the dilemma</h4>
+					<p>
+					<ul>
+						{%for wa in aw%}
+						<li>
+							{{wa.first_name}} {{wa.last_name}}
+						</li>
+						{%endfor%}
+					</ul>
+					</p>
+					<h4 id="list-item-20"></h4>
+					<p>
+
+					</p>
+					<h4 id="list-item-21"></h4>
+					<p>
+
+					</p>
+					<h4 id="list-item-22"></h4>
+					<p>
+
+					</p>
+					<h4 id="list-item-18"></h4>
+					<p>
+
+					</p>
+
+				</div>
+
+			</div>
+		</div>
+	</div>
 
 
-	<h3><i class="fas fa-baseball-ball"></i> Baseball Leagues</h3>
-	<ul>
-		{% for base in baseball%}
-		<li>{{base.name}}</li>
-		{%endfor%}
-	</ul>
 
-
-	<h3><i class="fas fa-female"></i>  Women Leagues</h3>
-
-	<ul>
-		{% for women in women_league%}
-		<li>
-			{{women.name}}
-		</li>
-		{%endfor%}
-	</ul>
-
-
-	<h3><i class="fas fa-hockey-puck"></i> Hockey league</h3>
-
-	<ul>
-		{% for hockey in hockey_league%}
-		<li>
-			{{hockey.name}}
-		</li>
-		{%endfor%}
-	</ul>
-
-
-	<h3><i class="fas fa-running"></i> Not football Leagues</h3>
-	<ul>
-		{%for sport in not_football%}
-		<li>
-			{{sport.name}}
-		</li>
-		{%endfor%}
-	</ul>
-
-	<h3><i class="fab fa-bandcamp"></i> Conference League</h3>
-	<ul>
-		{% for con in conference%}
-		<li>
-			{{con.name}}
-		</li>
-		{%endfor%}
-	</ul>
-
-
-	<h1>Teams</h1>
-	<ol>
-		{% for team in teams %}
-		<li>{{team.location}} {{team.team_name}}</li>
-		{% empty %}
-		<p>No teams found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a
-				href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-		{% endfor %}
-	</ol>
-
-	<h3><i class="far fa-building"></i> Atlanta</h3>
-	<ul>
-		{% for geo in atlanta%}
-		<li>
-			{{geo.team_name}}
-		</li>
-		{%endfor%}
-	</ul>
-
-	<h3><i class="far fa-building"></i> Dallas</h3>
-	<ul>
-		{% for tex in dallas%}
-		<li>
-			{{tex.team_name}}
-		</li>
-		{%endfor%}
-	</ul>
-
-	<h3><i class="fas fa-users"></i> Raptors</h3>
-	<ul>
-		{% for raptor in raptor%}
-		<li>
-			{{raptor.team_name}}
-		</li>
-		{%endfor%}
-	</ul>
-
-	<h3><i class="far fa-building"></i> City</h3>
-	<ul>
-		{% for city in city%}
-		<li>
-			{{city.team_name}}
-		</li>
-		{%endfor%}
-	</ul>
-
-	<h3><i class="fas fa-users"></i> T</h3>
-	<ul>
-		{%for t in ti%}
-		<li>
-			{{t.team_name}}
-		</li>
-		{%endfor%}
-	</ul>
-
-	<h3><i class="fas fa-users"></i>Location Order Teams</h3>
-	<ul>
-		{%for o in order%}
-		<li>
-			{{o.team_name}} --- {{o.location}}
-		</li>
-		{%endfor%}
-	</ul>
-
-	<h3><i class="fas fa-users"></i>Inverse Order Teams</h3>
-	<ul>
-		{%for o in Iorder%}
-		<li>
-			{{o.team_name}} --- {{o.location}}
-		</li>
-		{%endfor%}
-	</ul>
-
-
-	<h1>Players</h1>
-	<ol>
-		{% for player in players %}
-		<li>{{player.first_name}} {{player.last_name}}</li>
-		{% empty %}
-		<p>No teams found. Try <code>python manage.py loaddata data.json</code>, or, if that doesn't work, going <a
-				href="{% url 'make_data' %}">here</a> (but be prepared to wait).</p>
-		{% endfor %}
-	</ol>
-
-	<h3><i class="far fa-user"></i> Cooper's player</h3>
-	<ul>
-		{%for cooper in cooper%}
-		<li>
-			{{cooper.first_name}} {{cooper.last_name}}
-		</li>
-		{%endfor%}
-	</ul>
-
-	<h3><i class="far fa-user"></i> Joshua's part</h3>
-	<ul>
-		{%for joshua in joshua%}
-		<li>
-			{{joshua.first_name}} {{joshua.last_name}}
-		</li>
-		{%endfor%}
-	</ul>
-
-	<h3><i class="far fa-user"></i>Not Joshua but Cooper</h3>
-	<ul>
-		{%for josh in josh%}
-		<li>
-			{{josh.first_name}} {{josh.last_name}}
-		</li>
-		{%endfor%}
-	</ul>
-
-	<h3><i class="far fa-user"></i> Alexander or Wyatt that's the dilemma</h3>
-	<ul>
-		{%for wa in aw%}
-		<li>
-			{{wa.first_name}} {{wa.last_name}}
-		</li>
-		{%endfor%}
-	</ul>
 
 
 
