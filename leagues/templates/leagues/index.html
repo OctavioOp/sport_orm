@@ -15,8 +15,8 @@
 <body>
 	<div class="container">
 		<div class="row">
-			<div class="col">
-				<div id="list-example" class="list-group">
+			<div class="col position-sticky">
+				<div id="list-example" class="list-group ">
 					<a class="list-group-item list-group-item-action" href="#list-item-1">Leagues</a>
 					<a class="list-group-item list-group-item-action" href="#list-item-2">Baseball Leagues</a>
 					<a class="list-group-item list-group-item-action" href="#list-item-3">Women Leagues</a>
@@ -233,13 +233,23 @@
 						{%endfor%}
 					</ul>
 					</p>
-					<h4 id="list-item-20"></h4>
+					<h4 id="list-item-20">Atlantic League Teams</h4>
 					<p>
+						{%for league in atlantic%}
+						<li>
+							{{league.team_name}} {{league.location}}
+						</li>
+						{%endfor%}
 
 					</p>
-					<h4 id="list-item-21"></h4>
+					<h4 id="list-item-21">Player Penguin Boston</h4>
 					<p>
-
+						
+						{%for pp in player_penguin%}
+						<li>
+							{{pp.first_name}} {{pp.last_name}}
+						</li>
+						{%endfor%}
 					</p>
 					<h4 id="list-item-22"></h4>
 					<p>
@@ -255,10 +265,6 @@
 			</div>
 		</div>
 	</div>
-
-
-
-
 
 
 </body>

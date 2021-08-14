@@ -20,6 +20,25 @@ def index(request):
 	joshua = Player.objects.filter(first_name = 'Joshua')
 	josh = Player.objects.filter(last_name = 'Cooper') & Player.objects.exclude(first_name = 'Joshua')
 	aw = Player.objects.filter(first_name = 'Alexander') | Player.objects.filter(first_name = 'Wyatt')
+	#second part
+	atlantic = Team.objects.filter(league__name= 'Atlantic Soccer Conference')
+	player_boston = Player.objects.filter(curr_team__team_name='Boston Penguin')
+	jugadores = Player.objects.filter(curr_team__league__name ='International Collegiate Baseball Conference')
+	amateur_soccer=Player.objects.filter(curr_team__league__name = 'American Amateur Soccer Conference').filter(last_name = 'Lopez')
+	soccer = Player.objects.filter(all_teams__league__sport= 'Soccer')
+	sophia = Team.objects.filter(curr_players__first_name = 'Sophia')
+
+	'''
+	try:
+		loswichitavikin = Team.objects.get(team_name = "Vikings", location = "Wichita")
+		wichita_players = loswichitavikin.all_players.all()
+		wichita_current_ids = [player.id for player in loswichitavikin.curr_players.all()]
+		not_now_wichita = [player for player in wichita_players if player.id not in wichita_current_ids]
+
+	except Team.DoesNotExist:
+		not_now_wichita = []
+'''
+
 	context = {
 		"leagues": League.objects.all(),
 		"teams": Team.objects.all(),
@@ -39,7 +58,8 @@ def index(request):
 		'cooper': cooper,
 		'joshua': joshua,
 		'josh': josh,
-		'aw': aw
+		'aw': aw,
+
 	}
 	return render(request, "leagues/index.html", context)
 
