@@ -244,20 +244,130 @@
 					</p>
 					<h4 id="list-item-21">Player Penguin Boston</h4>
 					<p>
-						
+
 						{%for pp in player_penguin%}
 						<li>
 							{{pp.first_name}} {{pp.last_name}}
 						</li>
 						{%endfor%}
 					</p>
-					<h4 id="list-item-22"></h4>
+					<h4 id="list-item-22">Atlantic Soccer Conference</h4>
+					<p>
+						{%for at in atlantic%}
+						<li>
+							{{pp.name}}
+						</li>
+						{%endfor%}
+					</p>
+					<h4 id="list-item-23">Boston Penguins</h4>
+					<p>
+					<p>
+						{%for pb in player_boston%}
+						<li>
+							{{pb.first_name}} {{pb.last_name}}
+						</li>
+						{%endfor%}
+					</p>
+					</p>
+					<h4 id="list-item-24">International Collegiate Baseball Conference</h4>
+					<p>
+						{%for icb in jugadores%}
+						<li>
+							{{icb.first_name}} {{icb.last_name}}
+						</li>
+						{%endfor%}
+					</p>
+					<h4 id="list-item-25">Lopez in Conferencia Americana de Fútbol Amateur</h4>
+					<p>
+						{%for as in amateur_soccer%}
+						<li>
+							{{as.first_name}} {{as.last_name}}
+						</li>
+						{%endfor%}
+					</p>
+					<h4 id="list-item-26">jugadores de fútbol</h4>
+					<p>
+						{%for soc in soccer%}
+						<li>
+							{{soc.first_name}} {{soc.last_name}}
+						</li>
+						{%endfor%}
+					</p>
+					<h4 id="list-item-27">Jugador actual "Sophia"</h4>
+					<p>
+						{%for so in sophia%}
+						<li>
+							{{so.team_name}} {{so.location}}
+						</li>
+						{%endfor%}
+					</p>
+					<h4 id="list-item-28"> todas las ligas: "Sophia"</h4>
+					<p>
+						{%for sl in sophia_leagues%}
+						<li>
+							{{sl.name}} {{sl.sport}}
+						</li>
+						{%endfor%}
+					</p>
+					<h4 id="list-item-29">"Flores" que NO (actualmente) juegan para los Washington Roughriders</h4>
+					<p>
+						{%for fl in flores%}
+						<li>
+							{{fl.name}} {{fl.sport}}
+						</li>
+						{%endfor%}
+					</p>
+					<h4 id="list-item-30">Samuel Evans</h4>
+					<p>
+						{%for ev in evans%}
+						<li>
+							{{ev.team_name}} {{ev.location}}
+						</li>
+						{%endfor%}
+					</p>
+					<h4 id="list-item-30">tigres</h4>
+					<p>
+						{%for tc in thunder_cat%}
+						<li>
+							{{tc.first_name}} {{tc.last_name}}
+						</li>
+						{%endfor%}
+					</p>
+					<h4 id="list-item-30">Wichita vikings</h4>
+					<p>
+						{%for nnw in not_now_wichita%}
+						<li>
+							{{nnw.first_name}} {{nnw.last_name}}
+						</li>
+						{%endfor%}
+					</p>
+					<h4 id="list-item-30">me falto 12</h4>
 					<p>
 
 					</p>
-					<h4 id="list-item-18"></h4>
+					<h4 id="list-item-30">"Joshua"  Federación Atlántica de Jugadores de Béisbol Amateur</h4>
 					<p>
-
+						{%for j2 in joshuas2%}
+						<li>
+							{{j2.first_name}} {{j2.last_name}}
+						</li>
+						{%endfor%}
+					</p>
+					<h4 id="list-item-30"> todos los equipos que han tenido 12 o más jugadores, pasados y presentes.</h4>
+					<p>
+						{%for t12 in team12%}
+						<li>
+							{{t12.team_name}} {{t12.location}}
+						</li>
+						{%endfor%}
+					</p>
+					<h4 id="list-item-30">  todos los jugadores y el número de equipos para los que jugó, ordenados.</h4>
+					<p>
+						{%for op in orderplayer%}
+						<li>
+							{{op.first_name}} {{op.last_name}} {{op.all_teams__count}}
+						</li>
+						{%endfor%}
 					</p>
 
 				</div>
